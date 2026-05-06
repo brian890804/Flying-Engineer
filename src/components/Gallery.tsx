@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Box, Container, Typography, Modal, IconButton } from '@mui/material';
 import { useSpring, animated } from '@react-spring/web';
 import CloseIcon from '@mui/icons-material/Close';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { useRef, useEffect } from 'react';
 
 const GALLERY_IMAGES = [
   {
