@@ -4,13 +4,10 @@ import svgr from "vite-plugin-svgr";
 import path from "path";
 
 export default defineConfig({
-  server: {
-    host: true,
-  },
+  base: "/Flying-Engineer/",
+  server: { host: true },
   plugins: [react(), svgr()],
-  build: {
-    sourcemap: false,
-  },
+  build: { sourcemap: false },
   resolve: {
     alias: {
       "~assets": path.resolve(__dirname, "./src/assets"),
