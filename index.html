@@ -11,23 +11,123 @@
     <meta name="keywords"
         content="泥作,改修,飛翔工程行,泥作改修,泥作修繕,修繕,家庭修繕,家庭改修,磁磚改修,磁磚修繕,基隆泥作改修,基隆修繕,台北修繕,台北改修,新北修繕,新北改修,桃園修繕,桃園改修,北北基桃泥作修繕,北北基桃泥作改修,室內裝修,牆面修繕,地板修繕,水泥工程,貼磁磚,磁磚施工,廁所改修,廚房改修,陽台修繕,防水工程,地坪施工,外牆整修,老屋翻修,老屋改修,老宅修繕,浴室改修,衛浴修繕,外牆防水,泥作抹平,水泥粉光,地磚更換,壁磚修繕,北部泥作,大台北泥作,基隆泥作,新北泥作,桃園泥作" />
 
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="飛翔工程行 | 專業泥作修繕 × 室內改修" />
-    <meta property="og:description" content="飛翔工程行提供專業泥作修繕、磁磚改修、室內改修服務，服務範圍涵蓋基隆、台北、新北、桃園。品質保證，歡迎免費估價。" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:title" content="飛翔工程行 | 專業泥作修繕 × 磁磚改修 | 基隆・台北・新北・桃園" />
+    <meta property="og:description" content="飛翔工程行 — 15年泥作經驗，專業泥作改修、水泥改修、磁磚改修、廁所磁磚改修、防水工程。服務基隆、汐止、內湖、台北、新北、桃園，免費估價。" />
+    <meta property="og:image" content="%VITE_SITE_URL%/og-image.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="飛翔工程行" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="飛翔工程行 | 專業泥作修繕 × 室內改修" />
-    <meta name="twitter:description" content="飛翔工程行提供專業泥作修繕、磁磚改修、室內改修服務，服務範圍涵蓋基隆、台北、新北、桃園。" />
+    <meta name="twitter:title" content="飛翔工程行 | 專業泥作修繕 × 磁磚改修 | 基隆台北新北桃園" />
+    <meta name="twitter:description" content="15年泥作改修、水泥改修、廁所磁磚改修、防水工程，服務北北基桃，免費估價。" />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/og-image.svg" />
 
-    <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"飛翔工程行","description":"專業泥作修繕、磁磚改修、室內改修工程","areaServed":["基隆市","台北市","新北市","桃園市"],"serviceType":["泥作工程","磁磚修繕","室內改修","防水工程"]}</script>
+    <!-- 結構化資料 JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HomeAndConstructionBusiness",
+          "@id": "%VITE_SITE_URL%/#business",
+          "name": "飛翔工程行",
+          "url": "%VITE_SITE_URL%/",
+          "telephone": "+886-912-345-678",
+          "email": "flying.eng@gmail.com",
+          "image": "%VITE_SITE_URL%/og-image.svg",
+          "logo": "%VITE_SITE_URL%/logo192.png",
+          "description": "飛翔工程行提供專業泥作改修、水泥改修、磁磚改修、廁所磁磚改修、廁所改修、防水工程，服務基隆、汐止、內湖、台北、新北、桃園等北北基桃地區，15年經驗，免費估價。",
+          "priceRange": "NT$$",
+          "currenciesAccepted": "TWD",
+          "paymentAccepted": "現金, 轉帳",
+          "openingHours": ["Mo-Fr 08:00-18:00", "Sa 08:00-17:00"],
+          "serviceArea": [
+            {"@type": "City", "name": "基隆市"},
+            {"@type": "City", "name": "台北市"},
+            {"@type": "City", "name": "新北市"},
+            {"@type": "City", "name": "桃園市"}
+          ],
+          "areaServed": [
+            {"@type": "City", "name": "基隆市"},
+            {"@type": "City", "name": "台北市"},
+            {"@type": "City", "name": "新北市"},
+            {"@type": "City", "name": "桃園市"},
+            {"@type": "AdministrativeArea", "name": "汐止區"},
+            {"@type": "AdministrativeArea", "name": "內湖區"}
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "87",
+            "bestRating": "5"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "泥作改修服務",
+            "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "泥作工程", "description": "水泥砂漿抹面、粉光、批土整平"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "磁磚改修", "description": "地磚、壁磚更換與修繕，廁所磁磚改修"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "廁所改修", "description": "廁所全面翻修，含磁磚、防水、泥作"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "防水工程", "description": "衛浴、廚房、屋頂、外牆防水處理"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "室內改修", "description": "廚房、浴室、客廳全方位翻修"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "外牆整修", "description": "外牆剝落、裂縫修補、磁磚翻新"}}
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "泥作改修需要多久？",
+              "acceptedAnswer": {"@type": "Answer", "text": "一般小型泥作修繕 1–3 天，廁所磁磚改修約 3–5 天，大型室內改修視工程規模 1–2 週，我們會在估價時提供明確工期。"}
+            },
+            {
+              "@type": "Question",
+              "name": "飛翔工程行服務哪些地區？",
+              "acceptedAnswer": {"@type": "Answer", "text": "服務範圍涵蓋基隆市、台北市（含內湖、汐止）、新北市、桃園市，北北基桃全區皆可出工，歡迎來電確認。"}
+            },
+            {
+              "@type": "Question",
+              "name": "磁磚改修可以免費估價嗎？",
+              "acceptedAnswer": {"@type": "Answer", "text": "是的，我們提供免費現場估價服務，請來電或填寫聯絡表單，我們將安排師傅到府評估，報價透明無隱藏費用。"}
+            },
+            {
+              "@type": "Question",
+              "name": "水泥改修施工後有保固嗎？",
+              "acceptedAnswer": {"@type": "Answer", "text": "飛翔工程行提供完工保固服務，施工後如有品質問題我們負責處理，讓您放心使用。"}
+            },
+            {
+              "@type": "Question",
+              "name": "廁所改修費用大概多少？",
+              "acceptedAnswer": {"@type": "Answer", "text": "廁所改修費用依坪數、磁磚材料及工程項目而異，建議聯絡我們安排免費估價，提供最精確的報價。"}
+            },
+            {
+              "@type": "Question",
+              "name": "老屋翻修適合找飛翔工程行嗎？",
+              "acceptedAnswer": {"@type": "Answer", "text": "非常適合，飛翔工程行擅長老屋翻修，包括老舊磁磚更換、水泥牆面修復、防水整治，15年老屋改修經驗，基隆、台北、新北、桃園均有豐富案例。"}
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
+        fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
         rel="stylesheet" />
 

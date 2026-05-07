@@ -27,7 +27,8 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "vite build && pnpm run postbuild",
+    "postbuild": "node --env-file=.env scripts/generate-sitemap.js",
     "preview": "vite preview",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

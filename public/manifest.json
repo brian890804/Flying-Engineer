@@ -1,6 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "飛翔工程行",
+  "name": "飛翔工程行 | 基隆泥作改修・磁磚改修・廁所改修專家",
+  "description": "飛翔工程行提供泥作改修、水泥改修、磁磚改修、廁所磁磚改修、防水工程，服務基隆、台北、新北、桃園，免費估價。",
+  "lang": "zh-TW",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +12,22 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#7B5035",
+  "background_color": "#FAF7F4",
+  "categories": [
+    "business",
+    "construction"
+  ]
 }
