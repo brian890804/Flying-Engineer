@@ -12,10 +12,6 @@ const today = new Date().toISOString().split('T')[0];
 
 const urls = [
   { loc: '/', priority: '1.0', changefreq: 'monthly' },
-  { loc: '/#services', priority: '0.9', changefreq: 'monthly' },
-  { loc: '/#gallery', priority: '0.8', changefreq: 'monthly' },
-  { loc: '/#about', priority: '0.8', changefreq: 'yearly' },
-  { loc: '/#contact', priority: '0.9', changefreq: 'yearly' },
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

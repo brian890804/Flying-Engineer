@@ -152,7 +152,7 @@ const Hero: React.FC = () => {
                   letterSpacing: "0.04em",
                 }}
               >
-                專業泥作改修・水泥改修・磁磚改修・廁所改修・防水工程
+                北北基桃首選泥作工程，15 年工藝品質、免費到府估價
               </Typography>
               <Typography
                 sx={{
