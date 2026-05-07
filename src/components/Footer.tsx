@@ -3,6 +3,11 @@ import { Box, Container, Typography, Divider } from "@mui/material";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import {
+  MAIN_KEYWORDS,
+  LONGTAIL_KEYWORDS,
+  LOCAL_KEYWORDS,
+} from "../seo/keywords";
 
 const SERVICES_LINKS = [
   "泥作工程",
@@ -202,6 +207,45 @@ const Footer: React.FC = () => {
               ))}
             </Box>
           </Box>
+        </Box>
+
+        <Box
+          sx={{
+            borderTop: "1px solid rgba(250,247,244,0.07)",
+            pt: 3,
+            mb: 3,
+          }}
+        >
+          <Typography
+            sx={{
+              color: "rgba(250,247,244,0.85)",
+              fontSize: "0.82rem",
+              lineHeight: 1.7,
+              textAlign: "center",
+            }}
+          >
+            服務關鍵字：{MAIN_KEYWORDS.join(" · ")}
+          </Typography>
+          <Typography
+            sx={{
+              color: "rgba(250,247,244,0.75)",
+              fontSize: "0.72rem",
+              textAlign: "center",
+              mt: 1,
+            }}
+          >
+            {LONGTAIL_KEYWORDS.join(" · ")}
+          </Typography>
+          <Typography
+            sx={{
+              color: "rgba(250,247,244,0.65)",
+              fontSize: "0.72rem",
+              textAlign: "center",
+              mt: 0.5,
+            }}
+          >
+            {LOCAL_KEYWORDS.join(" · ")}
+          </Typography>
         </Box>
 
         <Divider sx={{ borderColor: "rgba(250,247,244,0.07)", mb: 3 }} />
