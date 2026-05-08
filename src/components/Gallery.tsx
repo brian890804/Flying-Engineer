@@ -338,7 +338,7 @@ const Gallery: React.FC = () => {
                   maxWidth: "90vw",
                   maxHeight: "80vh",
                   objectFit: "contain",
-                  borderRadius: 2,
+                  borderRadius: "10px 10px 0 0",
                   display: "block",
                 }}
               />

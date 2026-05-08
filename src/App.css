@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+/* Make all images and related elements unselectable and non-draggable */
+img,
+picture,
+figure,
+.no-select-img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
