@@ -3,7 +3,6 @@ import { Box, Container, Typography, Paper, Chip, Stack } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import EmailIcon from "@mui/icons-material/Email";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { animated } from "@react-spring/web";
 
@@ -37,12 +36,6 @@ const CONTACT_ITEMS = [
     label: "服務地區",
     value: "北北基桃全區",
     sub: "基隆・台北・新北・桃園",
-  },
-  {
-    icon: <EmailIcon sx={{ color: "#C4956A", fontSize: 28 }} />,
-    label: "電子信箱",
-    value: "flying.eng@gmail.com",
-    sub: "24小時內回覆",
   },
 ];
 
