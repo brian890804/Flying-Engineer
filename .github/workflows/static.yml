@@ -45,7 +45,7 @@ jobs:
 
       - name: Build
         env:
-          VITE_SITE_URL: https://brian890804.github.io/Flying-Engineer
+          VITE_SITE_URL: https://flying-engineer.com.tw
         run: pnpm build
 
       - name: Setup Pages
