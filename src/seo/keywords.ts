@@ -9,6 +9,10 @@ export const MAIN_KEYWORDS: string[] = [
   "桃園室內改修推薦",
   "老屋泥作翻修",
   "浴室防水防漏工程",
+  "拆除工程",
+  "打底工程",
+  "水泥粉光",
+  "砌紅磚",
 ];
 
 export const LONGTAIL_KEYWORDS: string[] = [
@@ -22,6 +26,10 @@ export const LONGTAIL_KEYWORDS: string[] = [
   "新北桃園室內改修施工",
   "泥作工程品質保固",
   "廁所改修一站式服務",
+  "台北拆除打底粉光工程",
+  "基隆砌紅磚泥作施工",
+  "新北水泥粉光地坪推薦",
+  "桃園拆除改修一站式服務",
 ];
 
 export const LOCAL_KEYWORDS: string[] = [
