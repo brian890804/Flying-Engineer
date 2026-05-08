@@ -18,6 +18,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 import { useSpring, animated } from "@react-spring/web";
 
+const AnimatedAppBar = animated(AppBar);
+
 const NAV_ITEMS = [
   { label: "首頁", id: "hero" },
   { label: "服務項目", id: "services" },
@@ -43,11 +45,13 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <animated.div style={navSpring}>
-      <AppBar
+    <>
+      <AnimatedAppBar
+        style={navSpring}
         position="fixed"
         elevation={trigger ? 4 : 0}
         sx={{
+          zIndex: (theme) => theme.zIndex.appBar,
           backgroundColor: trigger ? "rgba(61,43,31,0.96)" : "rgba(0,0,0,0.25)",
           backdropFilter: "blur(8px)",
           transition: "background-color 0.4s ease, box-shadow 0.4s ease",
@@ -124,7 +128,7 @@ const Navbar: React.FC = () => {
             </IconButton>
           </Toolbar>
         </Container>
-      </AppBar>
+      </AnimatedAppBar>
 
       {/* Mobile Drawer */}
       <Drawer
@@ -191,7 +195,7 @@ const Navbar: React.FC = () => {
           ))}
         </List>
       </Drawer>
-    </animated.div>
+    </>
   );
 };
 
