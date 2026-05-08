@@ -4,7 +4,7 @@ import svgr from "vite-plugin-svgr";
 import path from "path";
 
 export default defineConfig({
-  base: "/Flying-Engineer/",
+  base: "/",
   server: { host: true },
   plugins: [react(), svgr()],
   build: { sourcemap: false },
