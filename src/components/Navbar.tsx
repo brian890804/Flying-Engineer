@@ -52,8 +52,12 @@ const Navbar: React.FC = () => {
         elevation={trigger ? 4 : 0}
         sx={{
           zIndex: (theme) => theme.zIndex.appBar,
-          backgroundColor: trigger ? "rgba(61,43,31,0.96)" : "rgba(0,0,0,0.25)",
-          backdropFilter: "blur(8px)",
+            backgroundColor: trigger ? "rgba(61,43,31,0.72)" : "rgba(61,43,31,0.28)",
+            backdropFilter: "blur(10px) saturate(120%)",
+            WebkitBackdropFilter: "blur(10px) saturate(120%)",
+            backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            boxShadow: trigger ? "0 6px 20px rgba(61,43,31,0.08)" : "none",
           transition: "background-color 0.4s ease, box-shadow 0.4s ease",
           animation: "navSlideDown 0.5s cubic-bezier(0.22, 1, 0.36, 1) both",
           "@keyframes navSlideDown": {
