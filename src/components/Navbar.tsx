@@ -33,9 +33,9 @@ const Navbar: React.FC = () => {
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 80 });
 
   const navSpring = useSpring({
-    from: { opacity: 0, transform: "translateY(-20px)" },
-    to: { opacity: 1, transform: "translateY(0px)" },
-    config: { tension: 280, friction: 60 },
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 600 },
   });
 
   const scrollTo = (id: string) => {
@@ -55,6 +55,11 @@ const Navbar: React.FC = () => {
           backgroundColor: trigger ? "rgba(61,43,31,0.96)" : "rgba(0,0,0,0.25)",
           backdropFilter: "blur(8px)",
           transition: "background-color 0.4s ease, box-shadow 0.4s ease",
+          animation: "navSlideDown 0.5s cubic-bezier(0.22, 1, 0.36, 1) both",
+          "@keyframes navSlideDown": {
+            from: { transform: "translateY(-100%)" },
+            to: { transform: "translateY(0)" },
+          },
         }}
       >
         <Container maxWidth="lg">
