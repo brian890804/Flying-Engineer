@@ -17,7 +17,7 @@
   <!-- Left accent bar -->
   <rect x="80" y="160" width="6" height="310" fill="#C4956A" rx="3"/>
   <!-- Brand name -->
-  <text x="120" y="275" font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" font-size="96" font-weight="900" fill="#FAF7F4" letter-spacing="-1">飛翔工程行</text>
+  <text x="120" y="275" font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" font-size="96" font-weight="900" fill="#FAF7F4" letter-spacing="-1">飛翔泥水匠</text>
   <!-- Subtitle -->
   <text x="122" y="340" font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" font-size="32" font-weight="500" fill="#C4956A" letter-spacing="4">專業泥作改修・磁磚改修・廁所改修・防水工程</text>
   <!-- Area -->

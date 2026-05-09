@@ -82,7 +82,12 @@ const Navbar: React.FC = () => {
               }}
               onClick={() => scrollTo("hero")}
             >
-              <HomeRepairServiceIcon sx={{ color: "#C4956A", fontSize: 28 }} />
+              <Box
+                component="img"
+                src="/logo512.png"
+                alt="飛翔泥水匠"
+                sx={{ width: 28, height: 28, objectFit: "contain" }}
+              />
               <Typography
                 variant="h6"
                 sx={{
@@ -92,7 +97,7 @@ const Navbar: React.FC = () => {
                   fontSize: { xs: "1rem", md: "1.15rem" },
                 }}
               >
-                飛翔工程行
+                飛翔泥水匠
               </Typography>
             </Box>
 
@@ -168,11 +173,16 @@ const Navbar: React.FC = () => {
         <Box
           sx={{ px: 2, mb: 2, display: "flex", alignItems: "center", gap: 1 }}
         >
-          <HomeRepairServiceIcon sx={{ color: "#C4956A", fontSize: 24 }} />
+          <Box
+            component="img"
+            src="/logo512.png"
+            alt="飛翔泥水匠"
+            sx={{ width: 24, height: 24, objectFit: "contain" }}
+          />
           <Typography
             sx={{ color: "#FAF7F4", fontWeight: 900, letterSpacing: "0.08em" }}
           >
-            飛翔工程行
+            飛翔泥水匠
           </Typography>
         </Box>
         <List>

@@ -239,7 +239,7 @@ const Contact: React.FC = () => {
                   lineHeight: 1.7,
                 }}
               >
-                飛翔工程行提供北北基桃全區到府服務，免費估價不收出差費。
+                飛翔泥水匠提供北北基桃全區到府服務，免費估價不收出差費。
               </Typography>
               <Stack direction="row" sx={{ flexWrap: "wrap", gap: 1, mb: 4 }}>
                 {SERVICE_AREAS.map((area) => (

@@ -9,7 +9,7 @@ const GALLERY_IMAGES = [
   {
     src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=75",
     caption: "廁所磁磚改修翻新",
-    alt: "基隆廁所磁磚改修完工案例，飛翔工程行浴室壁磚翻新施工",
+    alt: "基隆廁所磁磚改修完工案例，飛翔泥水匠浴室壁磚翻新施工",
     category: "磁磚改修",
   },
   {
@@ -21,7 +21,7 @@ const GALLERY_IMAGES = [
   {
     src: "https://images.unsplash.com/photo-1564540583246-934409427776?w=800&q=75",
     caption: "地坪水泥粉光施工",
-    alt: "新北地坪水泥粉光地坪施工，飛翔工程行地板整平改修",
+    alt: "新北地坪水泥粉光地坪施工，飛翔泥水匠地板整平改修",
     category: "地坪施工",
   },
   {
@@ -39,7 +39,7 @@ const GALLERY_IMAGES = [
   {
     src: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&q=75",
     caption: "客廳地磚磁磚鋪設",
-    alt: "桃園汐止客廳地磚磁磚改修鋪設，飛翔工程行磁磚施工",
+    alt: "桃園汐止客廳地磚磁磚改修鋪設，飛翔泥水匠磁磚施工",
     category: "磁磚改修",
   },
   {

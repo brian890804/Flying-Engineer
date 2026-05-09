@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
                   letterSpacing: "0.08em",
                 }}
               >
-                飛翔工程行
+                飛翔泥水匠
               </Typography>
             </Box>
             <Typography
@@ -263,7 +263,7 @@ const Footer: React.FC = () => {
           <Typography
             sx={{ color: "rgba(250,247,244,0.3)", fontSize: "0.8rem" }}
           >
-            © {new Date().getFullYear()} 飛翔工程行 Flying Engineer. All rights
+            © {new Date().getFullYear()} 飛翔泥水匠 Flying Engineer. All rights
             reserved.
           </Typography>
           <Typography

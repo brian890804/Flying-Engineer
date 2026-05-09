@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
                   letterSpacing: "-0.01em",
                 }}
               >
-                飛翔工程行
+                飛翔泥水匠
                 <Box
                   component="span"
                   sx={{
