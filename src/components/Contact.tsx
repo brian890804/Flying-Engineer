@@ -22,7 +22,7 @@ const CONTACT_ITEMS = [
   {
     icon: <PhoneIcon sx={{ color: "#C4956A", fontSize: 28 }} />,
     label: "聯絡電話",
-    value: "0912-345-678",
+    value: "0978-919-652",
     sub: "歡迎來電洽詢，免費估價",
   },
   {
@@ -287,7 +287,7 @@ const Contact: React.FC = () => {
                   }}
                 >
                   <PhoneIcon sx={{ fontSize: 24 }} />
-                  0912-345-678
+                  0978-919-652
                 </Typography>
                 <Typography
                   sx={{

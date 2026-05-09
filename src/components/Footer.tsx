@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
               <Typography
                 sx={{ color: "#D9B090", fontSize: "0.9rem", fontWeight: 600 }}
               >
-                0912-345-678
+                0978-919-652
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
