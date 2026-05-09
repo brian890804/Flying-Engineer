@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://flying-engineer.com/sitemap.xml
+Sitemap: https://flying-engineer.com.tw/sitemap.xml
