@@ -190,16 +190,32 @@ const Contact: React.FC = () => {
                     >
                       {item.label}
                     </Typography>
-                    <Typography
-                      sx={{
-                        color: "#FAF7F4",
-                        fontWeight: 700,
-                        fontSize: "1.05rem",
-                        mb: 0.2,
-                      }}
-                    >
-                      {item.value}
-                    </Typography>
+                    {item.label === "聯絡電話" ? (
+                      <Typography
+                        component="a"
+                        href="tel:0978919652"
+                        sx={{
+                          color: "#FAF7F4",
+                          fontWeight: 700,
+                          fontSize: "1.05rem",
+                          mb: 0.2,
+                          textDecoration: "none",
+                        }}
+                      >
+                        {item.value}
+                      </Typography>
+                    ) : (
+                      <Typography
+                        sx={{
+                          color: "#FAF7F4",
+                          fontWeight: 700,
+                          fontSize: "1.05rem",
+                          mb: 0.2,
+                        }}
+                      >
+                        {item.value}
+                      </Typography>
+                    )}
                     <Typography sx={{ color: "#D9B090", fontSize: "0.85rem" }}>
                       {item.sub}
                     </Typography>
@@ -287,7 +303,19 @@ const Contact: React.FC = () => {
                   }}
                 >
                   <PhoneIcon sx={{ fontSize: 24 }} />
-                  0978-919-652
+                  <Box
+                    component="a"
+                    href="tel:0978919652"
+                    sx={{
+                      color: "#FAF7F4",
+                      fontWeight: 900,
+                      fontSize: "1.8rem",
+                      textDecoration: "none",
+                      display: "inline-block",
+                    }}
+                  >
+                    0978-919-652
+                  </Box>
                 </Typography>
                 <Typography
                   sx={{

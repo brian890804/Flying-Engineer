@@ -78,7 +78,14 @@ const Footer: React.FC = () => {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <PhoneIcon sx={{ color: "#C4956A", fontSize: 16 }} />
               <Typography
-                sx={{ color: "#D9B090", fontSize: "0.9rem", fontWeight: 600 }}
+                component="a"
+                href="tel:0978919652"
+                sx={{
+                  color: "#D9B090",
+                  fontSize: "0.9rem",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                }}
               >
                 0978-919-652
               </Typography>
