@@ -13,7 +13,7 @@ const SERVICES = [
     icon: <ConstructionIcon sx={{ fontSize: 44 }} />,
     title: "泥作工程",
     description:
-      "水泥砂漿抹面、粉光、批土整平，精準施作每道工序，確保牆面平整光滑，為後續裝修提供最佳基礎。",
+      "水泥砂漿打底、粉光、直角整平，精準施作每道工序，確保牆面平整光滑，為後續裝修提供最佳基礎。",
     color: "#7B5035",
   },
   {
@@ -41,7 +41,7 @@ const SERVICES = [
     icon: <LayersIcon sx={{ fontSize: 44 }} />,
     title: "地坪施工",
     description:
-      "水泥自平地坪、石材鋪設、地板整平，精確控制水平度，讓空間地面平整耐用且美觀大方。",
+      "水泥地坪、磁磚鋪設、地板整平，精確控制水平度，讓空間地面平整耐用且美觀大方。",
     color: "#8B6245",
   },
   {

@@ -4,7 +4,7 @@ import { useSpring, animated, useTrail } from "@react-spring/web";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PhoneIcon from "@mui/icons-material/Phone";
 
-import heroBg from "../assests/hero/8.svg";
+import heroBg from "../assests/hero/a.svg";
 
 const Hero: React.FC = () => {
   const bgSpring = useSpring({
