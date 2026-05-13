@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3D2B1F"/>
+      <stop offset="60%" style="stop-color:#7B5035"/>
+      <stop offset="100%" style="stop-color:#5A3420"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7B5035"/>
+      <stop offset="100%" style="stop-color:#C4956A"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Texture overlay -->
+  <rect width="1200" height="630" fill="rgba(0,0,0,0.15)"/>
+  <!-- Left accent bar -->
+  <rect x="80" y="160" width="6" height="310" fill="#C4956A" rx="3"/>
+  <!-- Brand name -->
+  <text x="120" y="275" font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" font-size="96" font-weight="900" fill="#FAF7F4" letter-spacing="-1">飛翔泥水匠</text>
+  <!-- Subtitle -->
+  <text x="122" y="340" font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" font-size="32" font-weight="500" fill="#C4956A" letter-spacing="4">專業泥作改修・磁磚改修・廁所改修・防水工程</text>
+  <!-- Area -->
+  <text x="122" y="395" font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" font-size="26" fill="rgba(250,247,244,0.7)" letter-spacing="2">基隆・台北（汐止・內湖）・新北・桃園</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="570" width="1200" height="60" fill="url(#accent)"/>
+  <text x="600" y="608" font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" font-size="22" fill="#FAF7F4" text-anchor="middle" font-weight="700" letter-spacing="3">20年+專業施工 · 免費到府估價 · 品質保證</text>
+  <!-- Flying icon placeholder -->
+  <circle cx="1060" cy="300" r="120" fill="rgba(196,149,106,0.08)" stroke="rgba(196,149,106,0.2)" stroke-width="2"/>
+  <circle cx="1060" cy="300" r="80" fill="rgba(196,149,106,0.06)" stroke="rgba(196,149,106,0.15)" stroke-width="1"/>
+</svg>

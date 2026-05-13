@@ -4,8 +4,6 @@ import { useSpring, animated, useTrail } from "@react-spring/web";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PhoneIcon from "@mui/icons-material/Phone";
 
-import heroBg from "../assests/hero/a.svg";
-
 const Hero: React.FC = () => {
   const bgSpring = useSpring({
     from: { opacity: 0 },
@@ -35,10 +33,10 @@ const Hero: React.FC = () => {
           display: "flex",
           alignItems: "center",
           overflow: "hidden",
-          backgroundImage: `url(${heroBg})`,
+          backgroundImage: "url('/images/hero-bg.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: { xs: "scroll", md: "fixed" },
+          backgroundAttachment: { xs: "scroll", lg: "fixed" },
         }}
       >
         {/* Dark gradient overlay */}

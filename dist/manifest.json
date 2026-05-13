@@ -1,0 +1,33 @@
+{
+  "short_name": "飛翔泥水匠",
+  "name": "飛翔泥水匠 | 基隆泥作改修・磁磚改修・廁所改修專家",
+  "description": "飛翔泥水匠提供泥作改修、水泥改修、磁磚改修、廁所磁磚改修、防水工程，服務基隆、台北、新北、桃園，免費估價。",
+  "lang": "zh-TW",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#7B5035",
+  "background_color": "#FAF7F4",
+  "categories": [
+    "business",
+    "construction"
+  ]
+}

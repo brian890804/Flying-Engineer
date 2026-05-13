@@ -1,13 +1,43 @@
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme/theme";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
-import Gallery from "./components/Gallery";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import "./App.css";
+
+const Services = lazy(() => import("./components/Services"));
+const Gallery = lazy(() => import("./components/Gallery"));
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
+
+const DeferSection: React.FC<{
+  children: React.ReactNode;
+  rootMargin?: string;
+}> = ({ children, rootMargin = "300px" }) => {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [rootMargin]);
+
+  return <div ref={ref}>{visible ? children : null}</div>;
+};
 
 function App() {
   return (
@@ -16,12 +46,32 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <Gallery />
-        <About />
-        <Contact />
+        <DeferSection>
+          <Suspense fallback={null}>
+            <Services />
+          </Suspense>
+        </DeferSection>
+        <DeferSection>
+          <Suspense fallback={null}>
+            <Gallery />
+          </Suspense>
+        </DeferSection>
+        <DeferSection>
+          <Suspense fallback={null}>
+            <About />
+          </Suspense>
+        </DeferSection>
+        <DeferSection>
+          <Suspense fallback={null}>
+            <Contact />
+          </Suspense>
+        </DeferSection>
       </main>
-      <Footer />
+      <DeferSection>
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+      </DeferSection>
     </ThemeProvider>
   );
 }

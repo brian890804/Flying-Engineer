@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Box, Container, Typography, Modal, IconButton } from "@mui/material";
+import React, { Suspense, lazy, useState, useRef, useEffect } from "react";
+import { Box, Container, Typography } from "@mui/material";
 import { useSpring, animated } from "@react-spring/web";
-import CloseIcon from "@mui/icons-material/Close";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+
+const GalleryLightbox = lazy(() => import("./GalleryLightbox"));
 
 const GALLERY_IMAGES = [
   {
@@ -295,82 +296,14 @@ const Gallery: React.FC = () => {
         </Box>
       </Container>
 
-      {/* Lightbox Modal */}
-      <Modal
-        open={!!selectedImage}
-        onClose={() => setSelectedImage(null)}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          p: 2,
-        }}
-      >
-        <Box
-          sx={{
-            position: "relative",
-            maxWidth: "90vw",
-            maxHeight: "90vh",
-            outline: "none",
-          }}
-        >
-          <IconButton
-            onClick={() => setSelectedImage(null)}
-            sx={{
-              position: "absolute",
-              top: -16,
-              right: -16,
-              backgroundColor: "#3D2B1F",
-              color: "#FAF7F4",
-              zIndex: 1,
-              "&:hover": { backgroundColor: "#7B5035" },
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
-          {selectedImage && (
-            <Box>
-              <Box
-                component="img"
-                src={selectedImage.src.replace("w=800", "w=1200")}
-                alt={selectedImage.caption}
-                sx={{
-                  maxWidth: "90vw",
-                  maxHeight: "80vh",
-                  objectFit: "contain",
-                  borderRadius: "10px 10px 0 0",
-                  display: "block",
-                }}
-              />
-              <Box
-                sx={{
-                  backgroundColor: "#3D2B1F",
-                  borderRadius: "0 0 8px 8px",
-                  px: 3,
-                  py: 1.5,
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Typography sx={{ color: "#FAF7F4", fontWeight: 600 }}>
-                  {selectedImage.caption}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#C4956A",
-                    fontSize: "0.85rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.08em",
-                  }}
-                >
-                  {selectedImage.category}
-                </Typography>
-              </Box>
-            </Box>
-          )}
-        </Box>
-      </Modal>
+      {selectedImage && (
+        <Suspense fallback={null}>
+          <GalleryLightbox
+            image={selectedImage}
+            onClose={() => setSelectedImage(null)}
+          />
+        </Suspense>
+      )}
     </Box>
   );
 };
