@@ -70,17 +70,20 @@ const Footer: React.FC = () => {
               <br />
               品質保證，免費到府估價
             </Typography>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+            <Box
+              component="a"
+              href="tel:0978919652"
+              sx={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 1,
+                mb: 1,
+                textDecoration: "none",
+              }}
+            >
               <PhoneIcon sx={{ color: "#C4956A", fontSize: 16 }} />
               <Typography
-                component="a"
-                href="tel:0978919652"
-                sx={{
-                  color: "#D9B090",
-                  fontSize: "0.9rem",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                }}
+                sx={{ color: "#D9B090", fontSize: "0.9rem", fontWeight: 600 }}
               >
                 0978-919-652
               </Typography>
