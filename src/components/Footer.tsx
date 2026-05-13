@@ -163,6 +163,42 @@ const Footer: React.FC = () => {
                 </Typography>
               ))}
             </Box>
+
+            <Box sx={{ mt: 2 }}>
+              <Typography
+                sx={{
+                  color: "#FAF7F4",
+                  fontWeight: 700,
+                  mb: 1,
+                  fontSize: "0.9rem",
+                }}
+              >
+                在地專頁
+              </Typography>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                {[
+                  { label: "基隆泥作改修", href: "/keelung/" },
+                  { label: "台北泥作改修", href: "/taipei/" },
+                  { label: "新北泥作改修", href: "/newtaipei/" },
+                  { label: "桃園泥作改修", href: "/taoyuan/" },
+                ].map((link) => (
+                  <Typography
+                    key={link.href}
+                    component="a"
+                    href={link.href}
+                    sx={{
+                      color: "rgba(250,247,244,0.55)",
+                      fontSize: "0.85rem",
+                      textDecoration: "none",
+                      transition: "color 0.2s",
+                      "&:hover": { color: "#D9B090" },
+                    }}
+                  >
+                    {link.label}
+                  </Typography>
+                ))}
+              </Box>
+            </Box>
           </Box>
 
           {/* Business hours */}
