@@ -8,4 +8,32 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://flying-engineer.com.tw/" />
   </url>
+  <url>
+    <loc>https://flying-engineer.com.tw/keelung/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://flying-engineer.com.tw/keelung/" />
+  </url>
+  <url>
+    <loc>https://flying-engineer.com.tw/taipei/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://flying-engineer.com.tw/taipei/" />
+  </url>
+  <url>
+    <loc>https://flying-engineer.com.tw/newtaipei/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://flying-engineer.com.tw/newtaipei/" />
+  </url>
+  <url>
+    <loc>https://flying-engineer.com.tw/taoyuan/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://flying-engineer.com.tw/taoyuan/" />
+  </url>
 </urlset>
