@@ -28,6 +28,6 @@ ${urls
   .join("\n")}
 </urlset>`;
 
-const outPath = resolve(__dirname, "../dist/sitemap.xml");
+const outPath = resolve(__dirname, "../public/sitemap.xml");
 writeFileSync(outPath, sitemap, "utf-8");
 console.log(`✅ sitemap.xml 已產生: ${outPath}`);
