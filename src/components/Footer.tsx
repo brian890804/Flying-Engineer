@@ -3,11 +3,6 @@ import { Box, Container, Typography, Divider } from "@mui/material";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import {
-  MAIN_KEYWORDS,
-  LONGTAIL_KEYWORDS,
-  LOCAL_KEYWORDS,
-} from "../seo/keywords";
 
 const SERVICES_LINKS = [
   "泥作工程",
@@ -225,33 +220,23 @@ const Footer: React.FC = () => {
         >
           <Typography
             sx={{
-              color: "rgba(250,247,244,0.85)",
+              color: "rgba(250,247,244,0.55)",
               fontSize: "0.82rem",
-              lineHeight: 1.7,
+              lineHeight: 1.8,
               textAlign: "center",
             }}
           >
-            服務關鍵字：{MAIN_KEYWORDS.join(" · ")}
+            服務範圍：基隆泥作改修・台北泥作改修・新北泥作改修・桃園泥作改修
           </Typography>
           <Typography
             sx={{
-              color: "rgba(250,247,244,0.75)",
-              fontSize: "0.72rem",
-              textAlign: "center",
-              mt: 1,
-            }}
-          >
-            {LONGTAIL_KEYWORDS.join(" · ")}
-          </Typography>
-          <Typography
-            sx={{
-              color: "rgba(250,247,244,0.65)",
-              fontSize: "0.72rem",
+              color: "rgba(250,247,244,0.4)",
+              fontSize: "0.78rem",
               textAlign: "center",
               mt: 0.5,
             }}
           >
-            {LOCAL_KEYWORDS.join(" · ")}
+            磁磚改修・廁所翻修・防水工程・老屋翻新，北北基桃地區免費到府估價
           </Typography>
         </Box>
 
