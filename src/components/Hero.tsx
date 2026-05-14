@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
           display: "flex",
           alignItems: "center",
           overflow: "hidden",
-          backgroundImage: "url('/images/hero-bg.jpg')",
+          backgroundImage: "url('/assets/hero/hero.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: { xs: "scroll", lg: "fixed" },

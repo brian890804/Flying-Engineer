@@ -14,7 +14,7 @@ async function importHeicConvert() {
 
 const heicConvert = await importHeicConvert();
 
-// Simple CLI parsing: --src=path --out=path --replace --quality=80 --sizes=320,640,1024 --avif
+// CLI: --src=path --width=1024 --quality=80 --replace=true|false
 const argv = process.argv.slice(2);
 const opts = {};
 argv.forEach(arg => {
@@ -24,70 +24,69 @@ argv.forEach(arg => {
 });
 
 const cwd = process.cwd();
-const srcDir = path.resolve(opts.src || path.join(cwd, 'public', 'images'));
-const outDir = path.resolve(opts.out || srcDir);
+const srcRoot = path.resolve(opts.src || path.join(cwd, 'src', 'assests'));
+const targetWidth = Number(opts.width || 1024);
 const replace = opts.replace === true || opts.replace === 'true';
 const quality = Number(opts.quality || 80);
-const sizes = opts.sizes ? opts.sizes.split(',').map(s => Number(s)).filter(Boolean) : [];
-const makeAvif = opts.avif === true || opts.avif === 'true';
 
-if (!fs.existsSync(srcDir)) {
-  console.log('Source directory not found:', srcDir);
+function walkDir(dir) {
+  let results = [];
+  const list = fs.readdirSync(dir);
+  for (const file of list) {
+    const p = path.join(dir, file);
+    const stat = fs.statSync(p);
+    if (stat.isDirectory()) {
+      results = results.concat(walkDir(p));
+    } else {
+      results.push(p);
+    }
+  }
+  return results;
+}
+
+if (!fs.existsSync(srcRoot)) {
+  console.log('Source root not found:', srcRoot);
   process.exit(0);
 }
 
-const files = fs.readdirSync(srcDir).filter(f => f.toLowerCase().endsWith('.heic'));
-if (files.length === 0) {
-  console.log('No .heic files found in', srcDir);
+const allFiles = walkDir(srcRoot);
+const heicFiles = allFiles.filter(f => f.toLowerCase().endsWith('.heic'));
+if (heicFiles.length === 0) {
+  console.log('No .heic files found under', srcRoot);
   process.exit(0);
 }
 
-async function convertFile(file) {
-  const inPath = path.join(srcDir, file);
-  const name = path.parse(file).name;
-
+async function convertHeic(filePath) {
   try {
-    const inputBuffer = fs.readFileSync(inPath);
-    const intermediate = await heicConvert({ buffer: inputBuffer, format: 'PNG', quality: 1 });
-    const img = sharp(intermediate);
+    const buf = fs.readFileSync(filePath);
+    const pngBuf = await heicConvert({ buffer: buf, format: 'PNG', quality: 1 });
+    const img = sharp(pngBuf);
     const meta = await img.metadata();
 
-    const outputs = [];
+    const finalWidth = meta.width && meta.width < targetWidth ? meta.width : targetWidth;
 
-    // original-size webp
-    const outWebp = path.join(outDir, `${name}.webp`);
-    await img.webp({ quality }).toFile(outWebp);
-    outputs.push(outWebp);
+    const outPath = path.join(path.dirname(filePath), path.parse(filePath).name + '.webp');
 
-    // resized variants
-    for (const w of sizes) {
-      if (!meta.width || meta.width <= w) continue; // skip upscaling
-      const outResize = path.join(outDir, `${name}-${w}.webp`);
-      await img.resize({ width: w }).webp({ quality }).toFile(outResize);
-      outputs.push(outResize);
+    if (meta.width && meta.width > finalWidth) {
+      await img.resize({ width: finalWidth }).webp({ quality }).toFile(outPath);
+    } else {
+      await img.webp({ quality }).toFile(outPath);
     }
 
-    // optional AVIF
-    if (makeAvif) {
-      const outAvif = path.join(outDir, `${name}.avif`);
-      await img.avif({ quality }).toFile(outAvif);
-      outputs.push(outAvif);
-    }
-
-    console.log('Converted', inPath, '→', outputs.join(', '));
+    console.log('Converted:', filePath, '→', outPath);
 
     if (replace) {
-      fs.unlinkSync(inPath);
-      console.log('Removed original:', inPath);
+      fs.unlinkSync(filePath);
+      console.log('Removed original:', filePath);
     }
   } catch (err) {
-    console.error('Failed to convert', inPath, err.message || err);
+    console.error('Error converting', filePath, err.message || err);
   }
 }
 
 (async () => {
-  for (const f of files) {
-    await convertFile(f);
+  for (const f of heicFiles) {
+    await convertHeic(f);
   }
-  console.log('All conversions complete');
+  console.log('Done converting', heicFiles.length, 'files.');
 })();

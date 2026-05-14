@@ -34,7 +34,7 @@
     "eject": "react-scripts eject",
     "heic:svg": "node scripts/heic-to-svg.js",
     "generate:favicons": "node scripts/generate-favicons.js",
-    "heic:webp": "node scripts/heic-to-webp.js"
+    "heic:webp": "node scripts/heic-to-webp.js -- --src=src/assests --width=1024 --quality=80 --replace=false"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.0",
