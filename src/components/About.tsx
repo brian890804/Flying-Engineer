@@ -107,7 +107,8 @@ const About: React.FC = () => {
     const el = statsRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => {
+      (entries: IntersectionObserverEntry[]) => {
+        const [entry] = entries;
         if (entry.isIntersecting) {
           setStatsInView(true);
           observer.unobserve(el);

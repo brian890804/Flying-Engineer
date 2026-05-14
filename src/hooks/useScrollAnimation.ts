@@ -24,7 +24,8 @@ export const useScrollAnimation = (
     if (!element) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
+      (entries: IntersectionObserverEntry[]) => {
+        const [entry] = entries;
         if (entry.isIntersecting) {
           setInView(true);
           observer.unobserve(element);

@@ -23,7 +23,8 @@ const DeferSection: React.FC<{
     if (!el) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
+      (entries: IntersectionObserverEntry[]) => {
+        const [entry] = entries;
         if (entry.isIntersecting) {
           setVisible(true);
           observer.disconnect();

@@ -13,7 +13,15 @@ interface GalleryLightboxProps {
   onClose: () => void;
 }
 
-const GalleryLightbox: React.FC<GalleryLightboxProps> = ({ image, onClose }) => {
+const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
+  image,
+  onClose,
+}) => {
+  const displaySrc =
+    image.src && image.src.includes("w=800")
+      ? image.src.replace("w=800", "w=1200")
+      : image.src;
+
   return (
     <Modal
       open={!!image}
@@ -51,7 +59,7 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({ image, onClose }) => 
         <Box>
           <Box
             component="img"
-            src={image.src.replace("w=800", "w=1200")}
+            src={displaySrc}
             alt={image.caption}
             sx={{
               maxWidth: "90vw",
@@ -60,6 +68,7 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({ image, onClose }) => 
               borderRadius: "10px 10px 0 0",
               display: "block",
             }}
+            loading="lazy"
           />
           <Box
             sx={{
