@@ -1,14 +1,14 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Box, Container, Typography } from "@mui/material";
-import { useSpring, animated } from "@react-spring/web";
-import {
-  useScrollAnimation,
-  useCountAnimation,
-} from "../hooks/useScrollAnimation";
-import VerifiedIcon from "@mui/icons-material/Verified";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import StarIcon from "@mui/icons-material/Star";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import { Box, Container, Typography } from "@mui/material";
+import { animated, useSpring } from "@react-spring/web";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  useCountAnimation,
+  useScrollAnimation,
+} from "../hooks/useScrollAnimation";
 
 const STATS = [
   {
@@ -102,6 +102,8 @@ const About: React.FC = () => {
   });
   const statsRef = useRef<HTMLDivElement>(null);
   const [statsInView, setStatsInView] = useState(false);
+  const imgRef = useRef<HTMLDivElement>(null);
+  const [imgInView, setImgInView] = useState(false);
 
   useEffect(() => {
     const el = statsRef.current;
@@ -119,6 +121,28 @@ const About: React.FC = () => {
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const el = imgRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]: IntersectionObserverEntry[]) => {
+        if (entry.isIntersecting) {
+          setImgInView(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const { trowelProgress } = useSpring({
+    trowelProgress: imgInView ? 112 : 0,
+    config: { tension: 36, friction: 18 },
+    delay: 250,
+  });
 
   return (
     <Box
@@ -197,20 +221,50 @@ const About: React.FC = () => {
         >
           {/* Image side */}
           <Box
+            ref={imgRef}
             sx={{
               position: "relative",
               borderRadius: 3,
               overflow: "hidden",
               aspectRatio: "4/3",
+              border: "10px solid rgba(196,149,106,0)",
+              transition: "border-color 0.5s ease, box-shadow 0.3s ease",
+              ":hover": {
+                borderColor: "rgba(196,149,106,0.2)",
+                boxShadow: "0 8px 24px rgba(123,80,53,0.08)",
+              },
             }}
           >
             <Box
               component="img"
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=75"
+              src={new URL(`../assets/about/about.jpg`, import.meta.url).href}
               alt="飛翔泥水匠專業泥作改修施工現場，基隆泥作工程強化作業"
-              width={800}
-              height={600}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+              sx={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transform: "scale(1)",
+                transition: "transform 0.5s ease, filter 0.5s ease",
+                ":hover": {
+                  transform: "scale(1.02)",
+                  filter: "brightness(0.9)",
+                },
+              }}
+            />
+            {/* 水泥刀抹開動畫覆蓋層 */}
+            <animated.div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(to bottom, rgba(255,218,140,0.98) 0px, rgba(190,120,50,0.92) 6px, #6B4530 16px, #7B5035 45%, #6B4A36 100%)",
+                clipPath: trowelProgress.to(
+                  (p) =>
+                    `polygon(-10% ${p}%, 110% ${p - 3.5}%, 110% 120%, -10% 120%)`,
+                ),
+                pointerEvents: "none",
+                zIndex: 2,
+              }}
             />
             {/* Accent bar */}
             <Box
@@ -231,15 +285,13 @@ const About: React.FC = () => {
               variant="h3"
               sx={{
                 color: "#3D2B1F",
-                fontSize: { xs: "1.5rem", md: "1.9rem" },
+                fontSize: { xs: "1.5rem", md: "1.7rem" },
                 fontWeight: 700,
                 mb: 2,
                 lineHeight: 1.4,
               }}
             >
-              深耕北北基桃，
-              <br />
-              用雙手築起您對家的嚮往
+              深耕北北基桃，用雙手築起您對家的嚮往
             </Typography>
             <Typography
               sx={{
@@ -279,6 +331,11 @@ const About: React.FC = () => {
                     borderRadius: 2,
                     backgroundColor: "#F0E6D8",
                     borderLeft: "3px solid #C4956A",
+                    ":hover": {
+                      transform: "scale(1.02)",
+                      filter: "brightness(0.9)",
+                      transition: "transform 0.5s ease, filter 0.5s ease",
+                    },
                   }}
                 >
                   <Typography
