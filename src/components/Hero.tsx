@@ -224,6 +224,7 @@ const Hero: React.FC = () => {
                       color: "#3D2B1F",
                       fontWeight: 700,
                       fontSize: "1rem",
+                      width: "100%",
                       px: 3.5,
                       py: 1.4,
                       borderRadius: "8px",
