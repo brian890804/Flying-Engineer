@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Typography, Modal, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import { Box, IconButton, Modal, Typography } from "@mui/material";
+import React from "react";
 
 interface GalleryImageItem {
   src: string;
@@ -67,6 +67,7 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
               objectFit: "contain",
               borderRadius: "10px 10px 0 0",
               display: "block",
+              justifySelf: "center",
             }}
             loading="lazy"
           />
