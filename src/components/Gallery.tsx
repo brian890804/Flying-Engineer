@@ -155,10 +155,13 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
           overflow: "hidden",
           borderRadius: 2,
           cursor: "pointer",
-          aspectRatio: "4/3",
           backgroundColor: "#E8D9C8",
         }}
       >
+        {/* Aspect-ratio spacer to reserve height and prevent layout shift */}
+        <Box sx={{ width: "100%", height: 0, pt: "75%" }} />
+
+        {/* Image absolutely positioned to fill the reserved area */}
         <Box
           component="img"
           ref={imgRef as any}
@@ -169,6 +172,9 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
           width={800}
           height={600}
           sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
             width: "100%",
             height: "100%",
             objectFit: "cover",
@@ -178,6 +184,7 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
             backgroundColor: "#E8D9C8",
           }}
         />
+        {/* Placeholder box remains in flow but hidden visually once image loaded */}
         {!imgLoaded && (
           <Box
             sx={{
