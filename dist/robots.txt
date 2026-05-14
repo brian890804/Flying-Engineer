@@ -1,9 +1,0 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Allow: /
-Disallow: /api/
-
-Sitemap: https://flying-engineer.com.tw/sitemap.xml
-
-# Alternate sitemap location for language-specific pages (keeps crawlers aware of /en/ pages)
-Sitemap: https://flying-engineer.com.tw/en/sitemap.xml
