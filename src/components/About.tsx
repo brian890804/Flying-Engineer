@@ -13,7 +13,7 @@ import StarIcon from "@mui/icons-material/Star";
 const STATS = [
   {
     icon: <StarIcon sx={{ fontSize: 32, color: "#C4956A" }} />,
-    value: 15,
+    value: 20,
     unit: "+",
     label: "年專業經驗",
   },
