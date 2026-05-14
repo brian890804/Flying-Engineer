@@ -191,9 +191,11 @@ const Contact: React.FC = () => {
           {/* Left: Contact info */}
           <animated.div ref={leftRef} style={leftSpring}>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-              {CONTACT_ITEMS.map((item) => (
+              {CONTACT_ITEMS.map((item, idx) => (
                 <Box
                   key={item.label}
+                  component={idx === 0 ? "a" : "div"}
+                  href={idx === 0 ? `tel:${item.value}` : undefined}
                   sx={{
                     display: "flex",
                     gap: 2.5,
