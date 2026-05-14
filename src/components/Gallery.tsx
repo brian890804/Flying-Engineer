@@ -115,19 +115,7 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
       (entries: IntersectionObserverEntry[]) => {
         const [entry] = entries;
         if (entry.isIntersecting) {
-          if (image.src) {
-            const importPath = `../assets/gallery/${image.src}`;
-            const importer = (galleryModules as any)[importPath];
-            if (importer) {
-              importer()
-                .then((mod: any) => setLocalThumb(mod?.default ?? mod))
-                .catch(() => setLocalThumb(image.src));
-            } else {
-              setLocalThumb(image.src);
-            }
-          } else {
-            setLocalThumb(image.src);
-          }
+          setLocalThumb(image.src);
           obs.disconnect();
         }
       },
