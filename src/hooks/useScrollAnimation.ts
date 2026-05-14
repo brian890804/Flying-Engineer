@@ -1,13 +1,9 @@
 import { useRef, useState, useEffect } from "react";
-import { useSpring } from "@react-spring/web";
-
-type SpringResult = ReturnType<
-  typeof useSpring<{ opacity: number; transform: string }>
->;
+import { useSpring, SpringValue } from "@react-spring/web";
 
 interface ScrollAnimationResult {
   ref: React.RefObject<HTMLDivElement | null>;
-  spring: SpringResult;
+  spring: { opacity: SpringValue<number>; transform: SpringValue<string> };
 }
 
 interface ScrollAnimationOptions {
