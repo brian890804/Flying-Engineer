@@ -46,20 +46,61 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "HomeAndConstructionBusiness",
+          "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
           "@id": "%VITE_SITE_URL%/#business",
           "name": "飛翔泥水匠",
           "url": "%VITE_SITE_URL%/",
-          "telephone": "+886-912-345-678",
+          "telephone": "+886-978-919-652",
           "email": "flying.eng@gmail.com",
-          "image": "%VITE_SITE_URL%/og-image.svg",
-          "logo": "%VITE_SITE_URL%/logo192.png",
+          "image": {
+            "@type": "ImageObject",
+            "url": "%VITE_SITE_URL%/og-image.svg",
+            "width": 1200,
+            "height": 630
+          },
+          "logo": {
+            "@type": "ImageObject",
+            "url": "%VITE_SITE_URL%/logo192.png",
+            "width": 192,
+            "height": 192
+          },
           "description": "飛翔泥水匠提供專業泥作改修、水泥改修、磁磚改修、廁所磁磚改修、廁所改修、防水工程，服務基隆、汐止、內湖、台北、新北、桃園等北北基桃地區，20年+經驗三代傳承，免費估價。",
-          "keywords": "專業泥作工程, 水泥施工專家, 室內改修工程, 廁所全面翻新, 北北基桃泥作服務, 防水工程專業團隊, 基隆台北泥作工程, 桃園室內裝修推薦, 老屋泥作翻新, 浴室防水防漏工程, 基隆專業泥作工程推薦, 台北廁所改修價格評估, 新北室內泥作施工團隊, 桃園老屋浴室翻新工程, 北北基防水工程專家諮詢, 台北市泥作工程報價, 基隆浴室防水防漏施工, 新北桃園室內裝修設計, 專業水泥工程品質保證, 廁所改修一站式服務, 基隆泥作工程公司, 台北市室內改修推薦, 新北廁所翻新團隊, 桃園泥作施工專家, 北北基防水工程價格, 台北老屋泥作翻新, 基隆浴室改修設計, 新北桃園室內裝修公司, 台北泥作工程品質認證, 基隆防水工程技術指導",
           "priceRange": "NT$$",
           "currenciesAccepted": "TWD",
           "paymentAccepted": "現金, 轉帳",
           "openingHours": ["Mo-Fr 08:00-18:00", "Sa 08:00-17:00"],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "08:00",
+              "closes": "18:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "08:00",
+              "closes": "17:00"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "基隆市",
+            "addressRegion": "基隆市",
+            "addressCountry": "TW"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 25.1276,
+            "longitude": 121.7392
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+886-978-919-652",
+            "contactType": "customer service",
+            "areaServed": "TW",
+            "availableLanguage": "zh-TW"
+          },
           "serviceArea": [
             {"@type": "City", "name": "基隆市"},
             {"@type": "City", "name": "台北市"},
@@ -68,18 +109,29 @@
           ],
           "areaServed": [
             {"@type": "City", "name": "基隆市"},
+            {"@type": "AdministrativeArea", "name": "信義區"},
+            {"@type": "AdministrativeArea", "name": "中正區"},
+            {"@type": "AdministrativeArea", "name": "仁愛區"},
+            {"@type": "AdministrativeArea", "name": "安樂區"},
+            {"@type": "AdministrativeArea", "name": "暖暖區"},
+            {"@type": "AdministrativeArea", "name": "七堵區"},
             {"@type": "City", "name": "台北市"},
+            {"@type": "AdministrativeArea", "name": "內湖區"},
+            {"@type": "AdministrativeArea", "name": "南港區"},
+            {"@type": "AdministrativeArea", "name": "松山區"},
+            {"@type": "AdministrativeArea", "name": "士林區"},
+            {"@type": "AdministrativeArea", "name": "北投區"},
             {"@type": "City", "name": "新北市"},
-            {"@type": "City", "name": "桃園市"},
             {"@type": "AdministrativeArea", "name": "汐止區"},
-            {"@type": "AdministrativeArea", "name": "內湖區"}
+            {"@type": "AdministrativeArea", "name": "板橋區"},
+            {"@type": "AdministrativeArea", "name": "新店區"},
+            {"@type": "AdministrativeArea", "name": "三重區"},
+            {"@type": "AdministrativeArea", "name": "中和區"},
+            {"@type": "City", "name": "桃園市"},
+            {"@type": "AdministrativeArea", "name": "桃園區"},
+            {"@type": "AdministrativeArea", "name": "中壢區"},
+            {"@type": "AdministrativeArea", "name": "龜山區"}
           ],
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "87",
-            "bestRating": "5"
-          },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "泥作改修服務",
@@ -92,6 +144,15 @@
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "外牆整修", "description": "外牆剝落、裂縫修補、磁磚翻新"}}
             ]
           }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "%VITE_SITE_URL%/#website",
+          "url": "%VITE_SITE_URL%/",
+          "name": "飛翔泥水匠",
+          "description": "北北基桃泥作改修、磁磚改修、防水工程專家",
+          "publisher": {"@id": "%VITE_SITE_URL%/#business"},
+          "inLanguage": "zh-TW"
         },
         {
           "@type": "FAQPage",
