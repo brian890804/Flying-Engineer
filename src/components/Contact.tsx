@@ -309,12 +309,23 @@ const Contact: React.FC = () => {
 
               <animated.div style={pulseSpring}>
                 <Box
+                  component="a"
+                  href="tel:0978919652"
+                  aria-label="撥打 0978-919-652"
                   sx={{
+                    display: "block",
+                    textDecoration: "none",
+                    cursor: "pointer",
                     p: 3,
                     borderRadius: 2,
                     background:
                       "linear-gradient(135deg, #7B5035 0%, #A0704F 100%)",
                     textAlign: "center",
+                    transition: "transform 0.28s ease, box-shadow 0.28s ease",
+                    ":hover": {
+                      transform: "translateY(-6px)",
+                      boxShadow: "0 22px 48px rgba(123,80,53,0.18)",
+                    },
                   }}
                 >
                   <Typography
@@ -336,13 +347,11 @@ const Contact: React.FC = () => {
                   >
                     <PhoneIcon sx={{ fontSize: 24 }} />
                     <Box
-                      component="a"
-                      href="tel:0978919652"
+                      component="span"
                       sx={{
                         color: "#FAF7F4",
                         fontWeight: 900,
                         fontSize: "1.8rem",
-                        textDecoration: "none",
                         display: "inline-block",
                       }}
                     >
