@@ -26,66 +26,59 @@ try {
 
 const GALLERY_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=75",
-    caption: "廁所磁磚改修翻新",
-    alt: "基隆廁所磁磚改修完工案例，飛翔泥水匠浴室壁磚翻新施工",
-    category: "磁磚改修",
+    src: "a.jpg",
+    caption: "廚房粉光、地板硬底貼木紋磚施工案例",
+    alt: "新北蘆洲廚房粉光、地板硬底貼木紋磚施工案例。",
+    category: "打底、粉光、防水、貼磚",
     detailSrc: "a-progress.webp",
   },
   {
-    src: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=75",
-    caption: "廚房牆面泥作工程",
-    alt: "台北廚房牆面泥作改修，水泥砂漿抹面粉光工程",
-    category: "泥作工程",
+    src: "b.jpg",
+    caption: "浴室貼牆壁、地板磁磚施工案例",
+    alt: "新北蘆洲浴室貼牆壁、地板磁磚施工案例。",
+    category: "打底、防水、貼磚",
     detailSrc: "b-progress.webp",
   },
   {
-    src: "https://images.unsplash.com/photo-1564540583246-934409427776?w=800&q=75",
-    caption: "地坪水泥粉光施工",
-    alt: "新北地坪水泥粉光地坪施工，飛翔泥水匠地板整平改修",
-    category: "地坪施工",
+    src: "c.jpg",
+    caption: "地坪拆除打底粉光施工案例",
+    alt: "基隆深溪路地坪拆除打底粉光施工案例。",
+    category: "打底、粉光、防水、貼磚",
     detailSrc: "c-progress.webp",
   },
   {
-    src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=75",
-    caption: "外牆磁磚改修修繕",
-    alt: "基隆外牆磁磚改修修繕，老屋外牆整修翻新工程",
-    category: "外牆整修",
+    src: "d.jpg",
+    caption: "主浴牆壁、地板施工案例",
+    alt: "新北蘆洲主浴牆壁、地板施工案例。",
+    category: "拆除、防水、貼磚",
     detailSrc: "d-progress.webp",
   },
   {
-    src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=75",
-    caption: "衛浴防水改修工程",
-    alt: "廁所衛浴防水改修，廁所磁磚改修防水工程基隆台北新北",
-    category: "防水工程",
+    src: "e.jpg",
+    caption: "主浴牆壁、地板施工案例",
+    alt: "新北汐止環山路主浴牆壁、地板施工案例。",
+    category: "拆除、打底、防水、貼磚",
     detailSrc: "e-progress.webp",
   },
   {
-    src: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&q=75",
-    caption: "客廳地磚磁磚鋪設",
-    alt: "桃園汐止客廳地磚磁磚改修鋪設，飛翔泥水匠磁磚施工",
-    category: "磁磚改修",
+    src: "f.jpg",
+    caption: "牆面、地板施工案例",
+    alt: "內湖牆面、地板施工案例。",
+    category: "拆除、打底、防水、貼磚",
     detailSrc: "f-progress.webp",
   },
   {
-    src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=75",
-    caption: "壁面泥作整平批土",
-    alt: "內湖壁面泥作整平批土改修，水泥抹面粉光牆面修繕",
-    category: "泥作工程",
+    src: "g.jpg",
+    caption: "打底粉光施工案例",
+    alt: "士林打底粉光施工案例。",
+    category: "拆除、打底、粉光、防水、貼磚",
     detailSrc: "g-progress.webp",
   },
   {
-    src: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=75",
-    caption: "室內老屋全面改修",
-    alt: "台北老屋室內全面改修翻新，泥作磁磚改修一站式施工",
-    category: "室內改修",
-    detailSrc: "h-progress.webp",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&q=75",
-    caption: "浴室廁所整體翻新",
-    alt: "基隆浴室廁所改修整體翻新，廁所磁磚改修防水完工實績",
-    category: "室內改修",
+    src: "h.jpg",
+    caption: "廁所牆壁、地板、貼六角磚施工案例",
+    alt: "新北汐止環山路廁所牆壁、地板、貼六角磚施工案例。",
+    category: "拆除、打底、粉光、防水、貼磚",
     detailSrc: "h-progress.webp",
   },
 ];
@@ -353,37 +346,46 @@ const Gallery: React.FC = () => {
             gap: 2.5,
           }}
         >
-          {GALLERY_IMAGES.map((image, index) => (
-            <GalleryImage
-              key={image.caption}
-              image={image}
-              index={index}
-              inView={gridInView}
-              onOpen={() => {
-                // Prefer eager path (already available) to avoid extra async delay.
-                if (image.detailSrc && galleryEagerMap[image.detailSrc]) {
-                  setSelectedImage({
-                    ...image,
-                    src: galleryEagerMap[image.detailSrc],
-                  });
-                  return;
-                }
-                const importPath = `../assets/gallery/${image.detailSrc}`;
-                const importer = (galleryModules as any)[importPath];
-                if (importer) {
-                  importer()
-                    .then((mod: any) =>
-                      setSelectedImage({ ...image, src: mod?.default ?? mod }),
-                    )
-                    .catch(() =>
-                      setSelectedImage({ ...image, src: image.src }),
-                    );
-                } else {
-                  setSelectedImage({ ...image, src: image.src });
-                }
-              }}
-            />
-          ))}
+          {GALLERY_IMAGES.map((image, index) => {
+            const resolvedThumb =
+              galleryEagerMap[image.src] ??
+              new URL(`../assets/gallery/${image.src}`, import.meta.url).href;
+
+            return (
+              <GalleryImage
+                key={image.caption}
+                image={{ ...image, src: resolvedThumb }}
+                index={index}
+                inView={gridInView}
+                onOpen={() => {
+                  // Prefer eager path (already available) to avoid extra async delay.
+                  if (image.detailSrc && galleryEagerMap[image.detailSrc]) {
+                    setSelectedImage({
+                      ...image,
+                      src: galleryEagerMap[image.detailSrc],
+                    });
+                    return;
+                  }
+                  const importPath = `../assets/gallery/${image.detailSrc}`;
+                  const importer = (galleryModules as any)[importPath];
+                  if (importer) {
+                    importer()
+                      .then((mod: any) =>
+                        setSelectedImage({
+                          ...image,
+                          src: mod?.default ?? mod,
+                        }),
+                      )
+                      .catch(() =>
+                        setSelectedImage({ ...image, src: resolvedThumb }),
+                      );
+                  } else {
+                    setSelectedImage({ ...image, src: resolvedThumb });
+                  }
+                }}
+              />
+            );
+          })}
         </Box>
       </Container>
 
