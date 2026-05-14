@@ -1,0 +1,95 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "explicit",
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+  "folderTemplates.structures": [
+    {
+      "omitParentDirectory": true,
+      "structure": [
+        {
+          "fileName": "<FTName | lowercasefirstchar>/<FTName | capitalize>.tsx",
+          "template": "Functional Component"
+        }
+        // {
+        //   "fileName": "<FTName | lowercasefirstchar>/<FTName | lowercasefirstchar>.module.scss",
+        //   "template": "SCSS"
+        // }
+        // {
+        //   "fileName": "<FTName | lowercasefirstchar>/<FTName | lowercasefirstchar>.test.tsx",
+        //   "template": "Test"
+        // }
+      ]
+    }
+  ],
+  "folderTemplates.fileTemplates": {
+    "Functional Component": [
+      "import Paper from '@mui/material/Paper';",
+      "import Stack from '@mui/material/Stack';",
+      "import type { FC } from 'react';",
+      "import AreaTitle from '~components/typography/iconTitle/AreaTitle';",
+      "",
+      "type <FTName | capitalize>Props = object",
+      "",
+      "const <FTName | capitalize>: FC<<FTName | capitalize>Props> = () => {",
+      "  return (",
+      "    <Stack spacing={1.5}>",
+      "      <Paper>",
+      "        <AreaTitle title={'<FTName | capitalize> 1'} />",
+      "      </Paper>",
+      "      <Paper>",
+      "        <AreaTitle title={'<FTName | capitalize> 2'} />",
+      "      </Paper>",
+      "    </Stack>",
+      "  );",
+      "};",
+      "",
+      "export default <FTName | capitalize>;"
+    ],
+    "SCSS": [".mainContainer {", "  display: flex;", "}"],
+    "Test": [
+      "import { render, screen } from '@testing-library/react';",
+      "import { describe, expect, it } from 'vitest';",
+      "import <FTName | capitalize> from './<FTName | capitalize>';",
+      "",
+      "describe('<FTName | capitalize>', () => {",
+      "  it('renders without crashing', () => {",
+      "    render(<<FTName | capitalize> />);",
+      "    const mainContainer = screen.getByTestId('mainContainer');",
+      "    expect(mainContainer).toBeInTheDocument();",
+      "    expect(mainContainer).toHaveTextContent('<FTName | capitalize>');",
+      "  });",
+      "});"
+    ]
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+  "vitest.nodeExecutable": "node",
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "cSpell.words": ["Cascader", "Formschema"],
+  "editor.codeActions.triggerOnFocusChange": true,
+  "typescript.preferences.autoImportFileExcludePatterns": ["console"],
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
+    "^@mui/(?!x-)[^/]+$"
+  ],
+  "[snippets]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "git.addAICoAuthor": "off"
+}

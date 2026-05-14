@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
@@ -13,10 +14,8 @@ import {
   Typography,
   useScrollTrigger,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
-import { useSpring, animated } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
+import React, { useState } from "react";
 
 const AnimatedAppBar = animated(AppBar);
 
