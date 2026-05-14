@@ -1,9 +1,13 @@
-import { useRef, useState, useEffect } from 'react';
-import { useSpring, SpringValues } from '@react-spring/web';
+import { useRef, useState, useEffect } from "react";
+import { useSpring } from "@react-spring/web";
+
+type SpringResult = ReturnType<
+  typeof useSpring<{ opacity: number; transform: string }>
+>;
 
 interface ScrollAnimationResult {
   ref: React.RefObject<HTMLDivElement | null>;
-  spring: SpringValues<{ opacity: number; transform: string }>;
+  spring: SpringResult;
 }
 
 interface ScrollAnimationOptions {
@@ -13,7 +17,7 @@ interface ScrollAnimationOptions {
 }
 
 export const useScrollAnimation = (
-  options: ScrollAnimationOptions = {}
+  options: ScrollAnimationOptions = {},
 ): ScrollAnimationResult => {
   const { delay = 0, threshold = 0.12, fromY = 40 } = options;
   const ref = useRef<HTMLDivElement>(null);
@@ -30,7 +34,7 @@ export const useScrollAnimation = (
           observer.unobserve(element);
         }
       },
-      { threshold }
+      { threshold },
     );
 
     observer.observe(element);
@@ -39,7 +43,7 @@ export const useScrollAnimation = (
 
   const spring = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0px)' : `translateY(${fromY}px)`,
+    transform: inView ? "translateY(0px)" : `translateY(${fromY}px)`,
     delay,
     config: { tension: 260, friction: 58 },
   });
@@ -50,7 +54,7 @@ export const useScrollAnimation = (
 export const useCountAnimation = (
   target: number,
   inView: boolean,
-  duration = 1800
+  duration = 1800,
 ): number => {
   const [count, setCount] = useState(0);
 
