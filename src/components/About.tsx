@@ -66,10 +66,14 @@ const StatItem: React.FC<StatItemProps> = ({ stat, inView, index }) => {
           textAlign: "center",
           p: { xs: 2.5, md: 3 },
           borderRadius: 3,
-          backgroundColor: "#F0E6D8",
-          border: "1px solid rgba(196,149,106,0.2)",
-          transition: "box-shadow 0.3s",
-          "&:hover": { boxShadow: "0 8px 24px rgba(123,80,53,0.12)" },
+          background: "#F0E6D8",
+          border: "1px solid rgba(255,255,255,0.08)",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+          transition: "box-shadow 0.3s, transform 0.3s",
+          "&:hover": {
+            boxShadow: "0 12px 32px rgba(0,0,0,0.14)",
+            transform: "translateY(-4px)",
+          },
         }}
       >
         <Box sx={{ mb: 1.5 }}>{stat.icon}</Box>
@@ -329,12 +333,13 @@ const About: React.FC = () => {
                   sx={{
                     p: 2,
                     borderRadius: 2,
-                    backgroundColor: "#F0E6D8",
+                    background: "#F0E6D8",
                     borderLeft: "3px solid #C4956A",
+                    boxShadow: "0 4px 16px rgba(0,0,0,0.07)",
+                    transition: "transform 0.4s ease, box-shadow 0.3s ease",
                     ":hover": {
-                      transform: "scale(1.02)",
-                      filter: "brightness(0.9)",
-                      transition: "transform 0.5s ease, filter 0.5s ease",
+                      transform: "translateY(-5px)",
+                      boxShadow: "0 12px 28px rgba(0,0,0,0.13)",
                     },
                   }}
                 >

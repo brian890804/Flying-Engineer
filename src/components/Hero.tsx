@@ -1,8 +1,8 @@
-import React from "react";
-import { Box, Typography, Button, Container, Stack } from "@mui/material";
-import { useSpring, animated, useTrail } from "@react-spring/web";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PhoneIcon from "@mui/icons-material/Phone";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { animated, useSpring, useTrail } from "@react-spring/web";
+import React from "react";
 
 const Hero: React.FC = () => {
   const bgSpring = useSpring({
@@ -16,6 +16,13 @@ const Hero: React.FC = () => {
     to: { opacity: 1, transform: "translateY(0px)" },
     config: { tension: 260, friction: 60 },
     delay: 300,
+  });
+
+  const spinSpring = useSpring({
+    from: { rotate: 0 },
+    to: { rotate: 360 },
+    loop: true,
+    config: { duration: 2600 },
   });
 
   const scrollTo = (id: string) => {
@@ -111,16 +118,33 @@ const Hero: React.FC = () => {
               <Typography
                 variant="h1"
                 sx={{
-                  color: "#FAF7F4",
                   fontSize: { xs: "2.6rem", sm: "3.6rem", md: "4.8rem" },
                   fontWeight: 900,
                   lineHeight: 1.1,
                   mb: 1,
-                  textShadow: "0 2px 20px rgba(0,0,0,0.4)",
                   letterSpacing: "-0.01em",
                 }}
               >
-                飛翔泥水匠
+                <Box
+                  component="span"
+                  sx={{
+                    background:
+                      "linear-gradient(90deg, #FAF7F4 0%, #FAF7F4 20%, #C4956A 38%, #7B5035 50%, #C4956A 62%, #FAF7F4 80%, #FAF7F4 100%)",
+                    backgroundSize: "300% 100%",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    textShadow: "none",
+                    animation: "brownsweep 4s ease-in-out infinite alternate",
+                    "@keyframes brownsweep": {
+                      "0%": { backgroundPosition: "100% 0" },
+                      "100%": { backgroundPosition: "-100% 0" },
+                    },
+                    display: "inline",
+                  }}
+                >
+                  飛翔泥水匠
+                </Box>
                 <Box
                   component="span"
                   sx={{
@@ -128,7 +152,7 @@ const Hero: React.FC = () => {
                     fontSize: { xs: "1rem", sm: "1.4rem", md: "1.8rem" },
                     fontWeight: 500,
                     letterSpacing: "0.04em",
-                    mt: 0.5,
+                    mt: 2,
                     color: "#D9B090",
                   }}
                 >
@@ -169,23 +193,46 @@ const Hero: React.FC = () => {
             {/* CTAs */}
             <animated.div style={trail[3]}>
               <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                <Button
-                  variant="contained"
-                  size="large"
-                  startIcon={<PhoneIcon />}
-                  onClick={() => scrollTo("contact")}
+                {/* 免費估價：spinning border wrapper */}
+                <Box
                   sx={{
-                    backgroundColor: "#C4956A",
-                    color: "#3D2B1F",
-                    fontWeight: 700,
-                    fontSize: "1rem",
-                    px: 3.5,
-                    py: 1.4,
-                    "&:hover": { backgroundColor: "#D9B090" },
+                    position: "relative",
+                    display: "inline-block",
+                    p: "2px",
+                    borderRadius: "10px",
+                    overflow: "hidden",
                   }}
                 >
-                  免費估價
-                </Button>
+                  {/* Spinning conic-gradient ring */}
+                  <animated.div
+                    style={{
+                      ...spinSpring,
+                      position: "absolute",
+                      inset: "-120%",
+                      background:
+                        "conic-gradient(from 0deg, transparent 0deg, transparent 200deg, #C4956A 240deg, #FFE0A0 280deg, rgba(255,255,255,0.95) 300deg, #C4956A 320deg, transparent 360deg)",
+                    }}
+                  />
+                  <Button
+                    variant="contained"
+                    size="large"
+                    startIcon={<PhoneIcon />}
+                    onClick={() => scrollTo("contact")}
+                    sx={{
+                      position: "relative",
+                      backgroundColor: "#C4956A",
+                      color: "#3D2B1F",
+                      fontWeight: 700,
+                      fontSize: "1rem",
+                      px: 3.5,
+                      py: 1.4,
+                      borderRadius: "8px",
+                      "&:hover": { backgroundColor: "#D9B090" },
+                    }}
+                  >
+                    免費估價
+                  </Button>
+                </Box>
                 <Button
                   variant="outlined"
                   size="large"
