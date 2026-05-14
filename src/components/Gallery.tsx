@@ -1,15 +1,28 @@
-import React, { Suspense, lazy, useState, useRef, useEffect } from "react";
-import { Box, Container, Typography } from "@mui/material";
-import { useSpring, animated } from "@react-spring/web";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import { Box, Container, Typography } from "@mui/material";
+import { animated, useSpring } from "@react-spring/web";
+import React, { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const GalleryLightbox = lazy(() => import("./GalleryLightbox"));
 
-// Vite: lazy import map for gallery assets in `src/assets/gallery`
+// Lazy and eager maps for gallery assets under `src/assets/gallery`.
 const galleryModules = import.meta.glob(
   "../assets/gallery/*.{webp,jpg,jpeg,png}",
 );
+
+let galleryEagerMap: Record<string, string> = {};
+try {
+  const _eager = import.meta.globEager(
+    "../assets/gallery/*.{webp,jpg,jpeg,png}",
+  ) as Record<string, any>;
+  for (const p in _eager) {
+    const name = p.replace("../assets/gallery/", "");
+    galleryEagerMap[name] = _eager[p]?.default ?? _eager[p];
+  }
+} catch (e) {
+  galleryEagerMap = {};
+}
 
 const GALLERY_IMAGES = [
   {
@@ -92,7 +105,12 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
 }) => {
   const [hovered, setHovered] = useState(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
-  const [localThumb, setLocalThumb] = useState<string | null>(null);
+  const initialThumb =
+    image.detailSrc && galleryEagerMap[image.detailSrc]
+      ? galleryEagerMap[image.detailSrc]
+      : null;
+  const [localThumb, setLocalThumb] = useState<string | null>(initialThumb);
+  const [imgLoaded, setImgLoaded] = useState<boolean>(false);
 
   const cardSpring = useSpring({
     opacity: inView ? 1 : 0,
@@ -109,6 +127,7 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
   });
 
   useEffect(() => {
+    if (localThumb) return; // already have eager thumb
     const el = imgRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
@@ -123,14 +142,14 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [image.detailSrc]);
+  }, [image.detailSrc, localThumb]);
 
   return (
     <animated.div style={{ ...cardSpring, position: "relative" }}>
       <Box
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onClick={() => onOpen()}
+        onClick={onOpen}
         sx={{
           position: "relative",
           overflow: "hidden",
@@ -145,17 +164,29 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
           ref={imgRef as any}
           src={localThumb ?? image.src}
           alt={image.alt ?? image.caption}
-          loading="lazy"
+          onLoad={() => setImgLoaded(true)}
+          loading={initialThumb ? "eager" : "lazy"}
           width={800}
           height={600}
           sx={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            transition: "transform 0.5s ease",
+            transition: "opacity 280ms ease, transform 0.5s ease",
             transform: hovered ? "scale(1.08)" : "scale(1)",
+            opacity: imgLoaded ? 1 : 0,
+            backgroundColor: "#E8D9C8",
           }}
         />
+        {!imgLoaded && (
+          <Box
+            sx={{
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "#E8D9C8",
+            }}
+          />
+        )}
         <animated.div
           style={{
             ...overlaySpring,
@@ -189,11 +220,7 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
                 {image.category}
               </Typography>
               <Typography
-                sx={{
-                  color: "#FAF7F4",
-                  fontWeight: 600,
-                  fontSize: "1rem",
-                }}
+                sx={{ color: "#FAF7F4", fontWeight: 600, fontSize: "1rem" }}
               >
                 {image.caption}
               </Typography>
@@ -326,6 +353,14 @@ const Gallery: React.FC = () => {
               index={index}
               inView={gridInView}
               onOpen={() => {
+                // Prefer eager path (already available) to avoid extra async delay.
+                if (image.detailSrc && galleryEagerMap[image.detailSrc]) {
+                  setSelectedImage({
+                    ...image,
+                    src: galleryEagerMap[image.detailSrc],
+                  });
+                  return;
+                }
                 const importPath = `../assets/gallery/${image.detailSrc}`;
                 const importer = (galleryModules as any)[importPath];
                 if (importer) {
