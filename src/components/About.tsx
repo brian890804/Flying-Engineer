@@ -334,10 +334,12 @@ const About: React.FC = () => {
                     p: 2,
                     borderRadius: 2,
                     background: "#F0E6D8",
-                    borderLeft: "3px solid #C4956A",
                     boxShadow: "0 4px 16px rgba(0,0,0,0.07)",
-                    transition: "transform 0.4s ease, box-shadow 0.3s ease",
+                    borderLeft: "3px solid transparent",
+                    transition:
+                      "border-left-color 0.36s ease, transform 0.36s ease, box-shadow 0.28s ease",
                     ":hover": {
+                      borderLeftColor: "#C4956A",
                       transform: "translateY(-5px)",
                       boxShadow: "0 12px 28px rgba(0,0,0,0.13)",
                     },
