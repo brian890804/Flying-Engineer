@@ -247,10 +247,16 @@ const Services: React.FC = () => {
           {trail.map((style, index) => {
             const service = SERVICES[index];
             return (
-              <animated.div key={service.title} style={style}>
+              <animated.div
+                key={service.title}
+                style={{ ...style, height: "100%" }}
+              >
                 <Card
                   sx={{
+                    display: "flex",
+                    flexDirection: "column",
                     height: "100%",
+                    minHeight: { xs: 300, md: 360 },
                     borderRadius: 3,
                     overflow: "hidden",
                     cursor: "default",
@@ -262,7 +268,15 @@ const Services: React.FC = () => {
                     },
                   }}
                 >
-                  <CardContent sx={{ p: 4 }}>
+                  <CardContent
+                    sx={{
+                      p: 4,
+                      display: "flex",
+                      flexDirection: "column",
+                      flex: 1,
+                      justifyContent: "space-between",
+                    }}
+                  >
                     <Box
                       className="service-icon-wrapper"
                       sx={{
@@ -307,7 +321,7 @@ const Services: React.FC = () => {
                       variant="contained"
                       size="small"
                       sx={{
-                        mt: 2,
+                        mt: "auto",
                         backgroundColor: "#7B5035",
                         color: "#F6F5F2",
                         "&:hover": { backgroundColor: "#5e3f2f" },
