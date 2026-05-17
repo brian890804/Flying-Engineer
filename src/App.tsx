@@ -1,9 +1,9 @@
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import theme from "./theme/theme";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import "./App.css";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import theme from "./theme/theme";
 
 const Services = lazy(() => import("./components/Services"));
 const Gallery = lazy(() => import("./components/Gallery"));
@@ -49,12 +49,12 @@ function App() {
         <Hero />
         <DeferSection>
           <Suspense fallback={null}>
-            <Services />
+            <Gallery />
           </Suspense>
         </DeferSection>
         <DeferSection>
           <Suspense fallback={null}>
-            <Gallery />
+            <Services />
           </Suspense>
         </DeferSection>
         <DeferSection>
