@@ -241,7 +241,7 @@ const Services: React.FC = () => {
               sm: "repeat(2, 1fr)",
               md: "repeat(3, 1fr)",
             },
-            gap: 3,
+            gap: { xs: 3, md: 3 },
           }}
         >
           {trail.map((style, index) => {
@@ -256,7 +256,7 @@ const Services: React.FC = () => {
                     display: "flex",
                     flexDirection: "column",
                     height: "100%",
-                    minHeight: { xs: 300, md: 360 },
+                    minHeight: { xs: 360, md: 360 },
                     borderRadius: 3,
                     overflow: "hidden",
                     cursor: "default",
@@ -270,7 +270,7 @@ const Services: React.FC = () => {
                 >
                   <CardContent
                     sx={{
-                      p: 4,
+                      p: { xs: 5, md: 4 },
                       display: "flex",
                       flexDirection: "column",
                       flex: 1,
@@ -326,6 +326,8 @@ const Services: React.FC = () => {
                         color: "#F6F5F2",
                         "&:hover": { backgroundColor: "#5e3f2f" },
                         textTransform: "none",
+                        width: { xs: "100%", md: "auto" },
+                        alignSelf: { xs: "stretch", md: "flex-start" },
                       }}
                       onClick={() => openModal(index)}
                     >
